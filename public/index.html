@@ -1,32 +1,218 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <!--   <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">-->
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,900" rel="stylesheet">
-    <!--
-      Notice the use of %PUBLIC_URL% in the tag above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>Hot or Cold</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <title>Fitness with Friends</title>
+</head>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+<body>
+    <nav>
+        <div id="headerImage">
+            <img src="images/twitter_header_photo_1.png" alt="">
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                    <a href="#">Saved Workouts</a>
+                    <a href="#">Search Workouts</a>
+                </div>
+            </div>
+        </div>
+    </nav>
 
-      To begin the development, run `npm start`.
-      To create a production bundle, use `npm run build`.
-    -->
-  </body>
+    <!--    <div id="root"></div>-->
+
+    <main class="homePage">
+        `
+        <div class="home-page-column">
+            <div class="home-page-layout">
+                <h2 id="inspiration-quote">"Fitness is not about being better than someone else...It's about being better than you used to be."</h2>
+                <form class="sign-in-form" id="signInPage">
+                    <h1 id=formHeader>It all starts here!</h1>
+
+                    <fieldset class="sign-in-page-user-wrapper">
+                        <input id="signInPageUserName" type="text" placeholder="User Name">
+                    </fieldset>
+
+                    <fieldset class="sign-in-page-password-wrapper">
+                        <input id="signInPagePassword" type="password" placeholder="Password">
+                    </fieldset>
+                    <p>Demo Login: Johnny@gmail.com Password: 123</p>
+                    <button id="signInButton" type="submit">Sign In</button>
+                    <p>To Register <a class="showRegister" href="#"> click here</a></p>
+
+                </form>
+
+                <form class="signUpForm">
+
+                    <fieldset class="sign-up-page-full-wrapper">
+                        <input id="signUpPageFullName" type="text" placeholder="Full Name">
+                    </fieldset>
+
+
+                    <fieldset class="sign-up-page-user-wrapper">
+                        <input id="signUpPageUserName" type="text" placeholder="User Name">
+                    </fieldset>
+
+                    <fieldset class="sign-up-page-password-wrapper">
+                        <input id="signUpPagePassword" type="password" placeholder="Password">
+                    </fieldset>
+
+                    <fieldset class="sign-up-page-confirm-password-wrapper">
+                        <input id="signUpPageConfirmPassword" type="password" placeholder="Confirm Password">
+                    </fieldset>
+
+                    <button id="signUpButton" type="submit">Sign Up</button>
+                    <p>To Sign In <a class="showSignIn" href="#"> click here</a></p>
+
+                </form>
+            </div>
+            <div id=homePageImage>
+                <img src="images/steven-erixon-698801-unsplash.jpg" alt="">
+            </div>
+        </div>
+    </main>
+
+
+    <main class="">
+
+        <div id="introSection">
+            <h1 id="secondPageWelcome">Hello,Name</h1>
+        </div>
+
+        <section id="topSectionSecondPage">
+            <div id="secondPageQuote">
+                <h2> Your journey starts here! <br> Start working out by competing with your friends</h2>
+            </div>
+
+            <div class="leader-board">
+                <h1 id="leaderBoardTitle">LeaderBoard</h1>
+                <div id=userDataDiv>
+                    <ul class="user-data-labels">
+                        <li class=user-info>Name</li>
+                        <li class=user-info>Miles Ran</li>
+                        <li class=user-info>Time</li>
+                        <li class=user-info>Average Time</li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <ul class="user-input">
+                        <li class="name">Player3</li>
+                        <li class="milesRan">3</li>
+                        <li class="Time">Time</li>
+                        <li class="avgTime">Average Time</li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <ul class="user-input">
+                        <li class="name">Player3</li>
+                        <li class="milesRan">3</li>
+                        <li class="Time">Time</li>
+                        <li class="avgTime">Average Time</li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <ul class="user-input">
+                        <li class="name">Player3</li>
+                        <li class="milesRan">3</li>
+                        <li class="Time">Time</li>
+                        <li class="avgTime">Average Time</li>
+                    </ul>
+                </div>
+            </div>
+
+            <section class="workout-information">
+                <form class="user-input-form">
+                    <fieldset>
+                        <label for="distance"></label>
+                        <input type="text" id="runningDistance" placeholder="Distance">
+                    </fieldset>
+                    <fieldset>
+                        <label for="time"></label>
+                        <input type="text" id="runningTime" placeholder="Time">
+                    </fieldset>
+                    <button>Submit</button>
+                </form>
+
+            </section>
+        </section>
+
+
+    </main>
+
+
+    <main>
+        <section>
+            <h1>Search Workouts</h1>
+            <form class="searchForm">
+
+                <fieldset class="search-input-wrapper">
+                    <h2 id="search-page-quote">Search Workouts</h2>
+
+                    <input id="searchInput" type="text" placeholder="Workouts" value="HIIT, Strength, Endurance">
+
+                </fieldset>
+                <button id="searchButton" type="submit">Search</button>
+
+            </form>
+            <li class="result-items">
+                <div class="result-item-image">
+                    <form action="class=" addToFavoritesList>
+                        <input type="hidden">
+                        <input type="hidden">
+                        <button type="submit" class="addToFavoritesListButton">Save Workout</button>
+                    </form>
+                    <img src="" alt="">
+                </div>
+                <div class="result-description">
+                    <h3>
+                    </h3>
+                    <ul>
+                        <li></li>
+                    </ul>
+                </div>
+            </li>
+        </section>
+        <section>
+            <h2>Saved Workouts</h2>
+            <ul>
+                <li id="savedWorkoutLinks">
+                    <a href="" target="_blank">  <img src="" alt="">Link to workout page</a>
+                </li>
+            </ul>
+
+
+        </section>
+
+    </main>
+
+    <footer>
+        <ul id="social-media-images">
+            <li><a href="mailto:patrick.keshishian@gmail.com" target="_blank">
+                <img class="social-images" id="angellistImage" src="images/AngelList_Black_Victory_Hand.png" alt=""></a>
+            </li>
+
+
+
+            <li><a href="https://www.linkedin.com/in/patrick-keshishian-81932068/" target="_blank">
+                <img class="social-images" id="linkedinImage" src="images/In-Black-128px-R.png" alt=""></a>
+            </li>
+
+
+
+            <li><a href="https://github.com/PantherPat" target="_blank"> <img class="social-images" id="githubImage" src="images/GitHub-Mark-32px.png" alt=""></a>
+            </li>
+        </ul>
+    </footer>
+
+
+</body>
+
 </html>
