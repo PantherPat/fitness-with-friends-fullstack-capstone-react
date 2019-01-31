@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <nav>
+    <nav role="navigation">
         <div id="headerImage">
             <img src="images/twitter_header_photo_1.png" alt="">
             <div class="dropdown">
@@ -27,7 +27,7 @@
 
     <!--    <div id="root"></div>-->
 
-    <main class="homePage">
+    <main class="homePage" role="main">
         `
         <div class="home-page-column">
             <div class="home-page-layout">
@@ -79,7 +79,7 @@
     </main>
 
 
-    <main class="">
+    <main role="main">
 
         <div id="introSection">
             <h1 id="secondPageWelcome">Hello,Name</h1>
@@ -148,7 +148,7 @@
     </main>
 
 
-    <main>
+    <main role="main">
         <section>
             <h1>Search Workouts</h1>
             <form class="searchForm">
@@ -169,13 +169,15 @@
                         <input type="hidden">
                         <button type="submit" class="addToFavoritesListButton">Save Workout</button>
                     </form>
-                    <img src="" alt="">
+                    <img id="youtubeImage" src="images/In-Black-128px-R.png" alt="">
                 </div>
-                <div class="result-description">
-                    <h3>
+                <div class="youtube-results">
+                    <h3>Title of the image
                     </h3>
                     <ul>
-                        <li></li>
+                        <li class="result-description">
+                            <p>rest of the information from results here</p>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -184,7 +186,7 @@
             <h2>Saved Workouts</h2>
             <ul>
                 <li id="savedWorkoutLinks">
-                    <a href="" target="_blank">  <img src="" alt="">Link to workout page</a>
+                    <a href="" target="_blank">  <img src="images/GitHub-Mark-32px.png" alt="">Link to workout page</a>
                 </li>
             </ul>
 
@@ -193,7 +195,7 @@
 
     </main>
 
-    <footer>
+    <footer role="contentinfo">
         <ul id="social-media-images">
             <li><a href="mailto:patrick.keshishian@gmail.com" target="_blank">
                 <img class="social-images" id="angellistImage" src="images/AngelList_Black_Victory_Hand.png" alt=""></a>
