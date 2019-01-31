@@ -6,9 +6,17 @@ import './header.css';
 
 export default function Header(props) {
   return (
-    <header>
-      <TopNav />
-      <h1>HOT or COLD</h1>
-    </header>
+      <nav role="navigation">
+      <div id="headerImage">
+      <img src="images/twitter_header_photo_1.png" alt=""/>
+      <div className="dropdown">
+      <button className="dropbtn">Menu</button>
+      <div className="dropdown-content">
+      <a href="#">Saved Workouts</a>
+      <a href="#">Search Workouts</a>
+      </div>
+      </div>
+      </div>
+      </nav>
   );
 }
