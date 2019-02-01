@@ -1,30 +1,18 @@
 import React from 'react';
 
-//import './search-page.css';
+
+import SavedWorkouts from './save-workouts'
+import WorkoutSearch from './workout-search'
 
 export default function SearchPage(props) {
   return (
       <main role="main">
       <section>
       <h1>Search Workouts</h1>
-      <form className="searchForm">
-
-      <fieldset className="search-input-wrapper">
-      <h2 id="search-page-quote">Search Workouts</h2>
-
-      <input id="searchInput" type="text" placeholder="Workouts" value="HIIT, Strength, Endurance"/>
-
-      </fieldset>
-      <button id="searchButton" type="submit">Search</button>
-
-      </form>
+      <WorkoutSearch />
       <li className="result-items">
       <div className="result-item-image">
-      <form action="class=" addToFavoritesList>
-      <input type="hidden"/>
-      <input type="hidden"/>
-      <button type="submit" class="addToFavoritesListButton">Save Workout</button>
-      </form>
+      <SavedWorkouts />
       <img id="youtubeImage" src="images/In-Black-128px-R.png" alt=""/>
       </div>
       <div className="youtube-results">

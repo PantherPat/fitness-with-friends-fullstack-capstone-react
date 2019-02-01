@@ -1,7 +1,7 @@
 import React from 'react';
 
-//import GuessList from './guess-list';
-//import GuessCount from './guess-count';
+import TimeCalculator from './time-calculator';
+import TrackedInformation from './tracked-information';
 //import AuralStatus from './aural-status';
 
 export default function InputPage(props) {
@@ -28,46 +28,15 @@ export default function InputPage(props) {
       <li className="user-info">Average Time</li>
       </ul>
       </div>
-      <div className="row">
-      <ul className="user-input">
-      <li className="name">Player3</li>
-      <li className="milesRan">3</li>
-      <li className="Time">Time</li>
-      <li className="avgTime">Average Time</li>
-      </ul>
-      </div>
 
-      <div className="row">
-      <ul className="user-input">
-      <li className="name">Player3</li>
-      <li className="milesRan">3</li>
-      <li className="Time">Time</li>
-      <li className="avgTime">Average Time</li>
-      </ul>
-      </div>
+      <TrackedInformation />
 
-      <div className="row">
-      <ul className="user-input">
-      <li className="name">Player3</li>
-      <li className="milesRan">3</li>
-      <li className="Time">Time</li>
-      <li className="avgTime">Average Time</li>
-      </ul>
-      </div>
+
+
       </div>
 
       <section className="workout-information">
-      <form className="user-input-form">
-      <fieldset>
-      <label for="distance"></label>
-      <input type="text" id="runningDistance" placeholder="Distance"/>
-      </fieldset>
-      <fieldset>
-      <label for="time"></label>
-      <input type="text" id="runningTime" placeholder="Time"/>
-      </fieldset>
-      <button>Submit</button>
-      </form>
+      <TimeCalculator />
 
       </section>
       </section>
