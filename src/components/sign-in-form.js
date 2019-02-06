@@ -3,10 +3,16 @@ import React from 'react'
 
 //import './feedback.css';
 
-export default function SignInForm(props) {
+export class SignInForm extends React.Component {
+ onSubmit(event){
+     event.preventDefault();
 
+ var value = this.input.value;
+     console.log(value)
+ }
+
+render(){
   return (
-
       <form className="sign-in-form" id="signInPage">
       <h1 id="formHeader">It all starts here!</h1>
 
@@ -23,5 +29,6 @@ export default function SignInForm(props) {
 
       </form>
   );
+}
 }
 

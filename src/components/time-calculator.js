@@ -9,11 +9,11 @@ export default function TimeCalculator(props) {
 
       <form className="user-input-form">
       <fieldset>
-      <label for="distance"></label>
+      <label htmlFor="distance"></label>
       <input type="text" id="runningDistance" placeholder="Distance"/>
       </fieldset>
       <fieldset>
-      <label for="time"></label>
+      <label htmlFor="time"></label>
       <input type="text" id="runningTime" placeholder="Time"/>
       </fieldset>
       <button>Submit</button>

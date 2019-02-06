@@ -7,10 +7,10 @@ export default function SavedWorkouts(props) {
 
   return (
 
-      <form action="class=" addToFavoritesList>
+      <form className="addToFavoritesList">
       <input type="hidden"/>
       <input type="hidden"/>
-      <button type="submit" class="addToFavoritesListButton">Save Workout</button>
+      <button type="submit" className="addToFavoritesListButton">Save Workout</button>
       </form>
   );
 }

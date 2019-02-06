@@ -2,7 +2,7 @@ import React from 'react';
 
 
 import SavedWorkouts from './save-workouts'
-import WorkoutSearch from './workout-search'
+import {WorkoutSearch} from './workout-search'
 
 export default function SearchPage(props) {
   return (
@@ -39,4 +39,4 @@ export default function SearchPage(props) {
 
       </main>
   );
-}
+};
