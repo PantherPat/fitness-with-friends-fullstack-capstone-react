@@ -11,13 +11,18 @@ export class SignInForm extends React.Component {
     onSubmit(e){
         e.preventDefault();
         const inputs = [this.username, this.password]
+
         const user = {
             userName: this.userName.value,
-            password: this.password.value
-        };
+            password: this.password.value,
+        }
         console.log(user)
-    }
-
+        if(user.userName === ""){
+            console.log("please enter user name")
+        }
+        if (user.password === ""){
+            console.log("please enter correct password")
+        }
 render(){
   return (
       <form onSubmit={this.onSubmit}
