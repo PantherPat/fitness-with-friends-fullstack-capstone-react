@@ -13,28 +13,43 @@ export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const ERROR = "ERROR";
 export const DISTANCE = "DISTANCE";
 export const TIME = "TIME";
-
+export const AVGTIME = "AVGTIME"
+export const TIMECALCULATOR = "TIMECALCULATOR"
 
 export const request = () => ({
     type: REQUEST
 });
+
+export const timeCalulator = () => ({
+    type: TIMECALCULATOR,
+    distance,
+    time,
+    avgTime
+})
 
 export const logUser = user => ({
     type: LOG_USER,
     user
 })
 
-export const selectVideo = (currentVideo, id, ) => ({
+export const selectVideo = (id) => ({
     type: SELECT_VIDEO,
-    currentVideo,
     id,
+    thumbnail
 });
 
 
 export const addToWatchlist = video => ({
     type: ADD_VIDEO,
-    video
+    watchlist
 });
+
+export const genWatchList = savedWorkouts => ({
+    type: GEN_WATCHLIST,
+    watchlist,
+    thumbnail,
+    videoUrl:
+})
 
 
 export const authRequest = () => ({

@@ -11,11 +11,12 @@ const initialState = {
     time: 0,
     distance: 0,
     title: "",
-    thumbnail: ""
+    thumbnail: "",
+    avgTime:0
 
 };
 
-export const reducer = (state = initialState, action) => {
+export const  = (state = initialState, action) => {
     if (action.type === actions.ERROR) {
         return Object.assign({}, state, {
             error: action.err,
@@ -27,6 +28,14 @@ export const reducer = (state = initialState, action) => {
             error: null,
             user: action.user
         });
+    }
+
+    if (action.type === action.TIMECALCULATOR){
+        return Object.assign({}, state, {
+        distance:0,
+        time:0,
+        avgTime:0
+        })
     }
 
     }
@@ -47,15 +56,10 @@ export const reducer = (state = initialState, action) => {
         return Object.assign({}, state, {
             watchlist: [],
             videoUrl,
-            userId
+            thumbnail,
         });
     }
-    if (action.type === actions.LOG_USER) {
-        return Object.assign({}, state, {
-            error: null,
-            user: action.user
-        });
-    }
+
     if (action.type === actions.SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
             authToken: action.authToken,

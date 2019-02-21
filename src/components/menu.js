@@ -1,7 +1,7 @@
 import React from 'react';
 
 // these components will replace lines 16 and 17
-import SearchPage from './search-page';
+import WorkoutSearch from './workout-search';
 
 
 // when the user clicks on the buttons below, it will take them to the savedworkouts page as well as the search page where they can search for youtube videos

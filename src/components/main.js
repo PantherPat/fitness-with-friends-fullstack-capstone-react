@@ -3,8 +3,11 @@ import React from 'react';
 import Header from './header';
 import LandingPage from './landing-page';
 import InputPage from './input-page';
-import SearchPage from './search-page';
+import ResultPage from './result-page';
 import Footer from './footer';
+
+
+
 
 export default function Game(props) {
   return (
@@ -12,7 +15,7 @@ export default function Game(props) {
       <Header />
       <LandingPage />
       <InputPage />
-      <SearchPage />
+      <ResultPage />
       <Footer />
 
     </div>

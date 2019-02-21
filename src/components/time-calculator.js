@@ -17,7 +17,8 @@ export class  TimeCalculator extends React.Component {
 
         const timeCalculator = {
             time: this.time.value,
-            distance: this.distance.value
+            distance: this.distance.value,
+            average: (this.time.value / this.distance.value)
         }
         console.log(timeCalculator)
         if(timeCalculator.time == ""){
@@ -39,4 +40,4 @@ export class  TimeCalculator extends React.Component {
       </form>
   );
 }
-
+}

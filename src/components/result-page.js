@@ -1,10 +1,11 @@
 import React from 'react';
 
 
-import SaveWorkouts from './save-workouts'
-import {WorkoutSearch} from './workout-search'
+import {SaveWorkouts} from './save-workouts';
+import {WorkoutSearch} from './workout-search';
+import {ShowSavedWorkouts} from './show-saved-workouts';
 
-export default function SearchPage(props) {
+export default function ResultPage(props) {
   return (
       <main role="main">
       <section>
@@ -12,7 +13,7 @@ export default function SearchPage(props) {
       <WorkoutSearch />
       <li className="result-items">
       <div className="result-item-image">
-      <SaveWorkouts />
+      <SaveWorkouts/>
       <img id="youtubeImage" src="images/In-Black-128px-R.png" alt=""/>
       </div>
       <div className="youtube-results">
@@ -28,13 +29,7 @@ export default function SearchPage(props) {
       </section>
       <section>
       <h2>Saved Workouts</h2>
-      <ul>
-      <li id="savedWorkoutLinks">
-      <a href="" target="_blank">  <img src="images/GitHub-Mark-32px.png" alt=""/>Link to workout page</a>
-      </li>
-      </ul>
-
-
+      <ShowSavedWorkouts />
       </section>
 
       </main>

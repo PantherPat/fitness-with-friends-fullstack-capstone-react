@@ -3,7 +3,7 @@ import React from 'react'
 
 //import './feedback.css';
 
-export default function SaveWorkouts(props) {
+export default function SaveWorkouts() {
 
   return (
 
@@ -11,7 +11,6 @@ export default function SaveWorkouts(props) {
       <input id="videoId" type="hidden"/>
       <input id="title" type="hidden"/>
       <input id="thumbnail" type="hidden"/>
-      <input id="user" type="hidden"/>
       <button type="submit" className="addToFavoritesListButton">Save Workout</button>
       </form>
   );
