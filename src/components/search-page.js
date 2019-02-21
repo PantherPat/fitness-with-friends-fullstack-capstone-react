@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-import SavedWorkouts from './save-workouts'
+import SaveWorkouts from './save-workouts'
 import {WorkoutSearch} from './workout-search'
 
 export default function SearchPage(props) {
@@ -12,7 +12,7 @@ export default function SearchPage(props) {
       <WorkoutSearch />
       <li className="result-items">
       <div className="result-item-image">
-      <SavedWorkouts />
+      <SaveWorkouts />
       <img id="youtubeImage" src="images/In-Black-128px-R.png" alt=""/>
       </div>
       <div className="youtube-results">

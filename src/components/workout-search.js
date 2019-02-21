@@ -4,13 +4,7 @@ import React from 'react'
 //import './feedback.css';
 
 export class WorkoutSearch extends React.Component {
-//    onSubmit(event) {
-//        event.preventDefault();
-//
-//        const value = this.input.value;
-////        this.props.dispatch(makeGuess(value));
-//        this.input.value = '';
-//        this.input.focus();
+
 
 
 render(){

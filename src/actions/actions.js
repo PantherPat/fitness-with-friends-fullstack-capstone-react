@@ -1,8 +1,10 @@
+import { API_ORIGIN } from "../config";
+
+
 
 export const REQUEST = "REQUEST";
 export const LOG_USER = "LOG_USER";
 export const SELECT_VIDEO = "SELECT_VIDEO";
-export const APPEND_RESULTS = "APPEND_RESULTS";
 export const GEN_WATCHLIST = "GEN_WATCHLIST";
 export const ADD_VIDEO = "ADD_VIDEO";
 export const AUTH_REQUEST = "AUTH_REQUEST";
@@ -17,26 +19,23 @@ export const request = () => ({
     type: REQUEST
 });
 
-export const selectVideo = (currentVideo, id, time) => ({
+export const logUser = user => ({
+    type: LOG_USER,
+    user
+})
+
+export const selectVideo = (currentVideo, id, ) => ({
     type: SELECT_VIDEO,
     currentVideo,
     id,
 });
 
-export const genWatchlist = videos => ({
-    type: GEN_WATCHLIST,
-    videos
-});
 
 export const addToWatchlist = video => ({
     type: ADD_VIDEO,
     video
 });
 
-export const appendResults = videos => ({
-    type: APPEND_RESULTS,
-    videos
-});
 
 export const authRequest = () => ({
     type: AUTH_REQUEST
@@ -57,4 +56,60 @@ export const fetchErr = err => ({
     err
 });
 
-export const distance =
+export const distance = () =>({
+    type: DISTANCE,
+    currentUser,
+    id
+})
+
+export const time = () => ({
+    type: TIME,
+    currentUser,
+    id
+})
+
+
+
+export const login = user => dispatch => {
+    dispatch(request());
+    fetch(`${API_ORIGIN}/users/login`, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+        .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
+        .then(authToken => storeAuthInfo(authToken.token, dispatch))
+        .catch(err => {
+        dispatch(fetchErr(err));
+    });
+};
+
+export const signupUser = user => dispatch => {
+    dispatch(request());
+    fetch(`${API_ORIGIN}/users/create`, {
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+        .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
+        .then(authToken => storeAuthInfo(authToken.token, dispatch))
+        .catch(err => {
+        dispatch(fetchErr(err));
+    });
+};
+
+export const

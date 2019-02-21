@@ -18,10 +18,11 @@ Delete Recipe |
 ## User Cases
 As a visitor you should be able to securely log in to my applications. In order to properly/securly navigate the application.
 As a visitor after you have logged in you should be forwarded to the home/main page. In order to access the main page.
-As a user, you should be able to upload workouts. In order for your "friends" to see them.
+As a user, you should be able to upload workout times. In order for your "friends" to see them.
 As a user, you should be able to upload your time for certain workouts. In order for your friends to see and climb the leaderboard.
-As a user you should be able to see various workouts to complete uploaded by others.
+As a user you should be able to search various workouts by keyword on the search page.
 As a user you should be able to save your uploaded workouts and times.
+As a user you should be able to save workout URL to your saved workout section, in order to be able to visit them as you please when want.
 
 
 

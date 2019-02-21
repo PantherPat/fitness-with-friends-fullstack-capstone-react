@@ -1,7 +1,5 @@
 import React from 'react'
-//import { connect } from 'react-redux';
 
-//import './feedback.css';
 
 export class SignInForm extends React.Component {
     constructor(props){
@@ -13,16 +11,18 @@ export class SignInForm extends React.Component {
         const inputs = [this.username, this.password]
 
         const user = {
-            userName: this.userName.value,
+            userName: this.username.value,
             password: this.password.value,
         }
         console.log(user)
-        if(user.userName === ""){
+        if(user.username === ""){
             console.log("please enter user name")
         }
         if (user.password === ""){
             console.log("please enter correct password")
         }
+    }
+
 render(){
   return (
       <form onSubmit={this.onSubmit}
@@ -35,7 +35,7 @@ render(){
                 <input id="signInPageUserName"
                 type="text"
                 placeholder="User Name"
-                ref={input => (this.userName = input)}
+                ref={input => (this.username = input)}
                 required
       />
       </fieldset>
@@ -56,4 +56,11 @@ render(){
   );
 }
 }
+
+export const mapStateToProps = state => ({
+    loggedIn: state.user,
+    error: state.error
+})
+
+export default connect(mapStateToProps)(SignInForm);
 

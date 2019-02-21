@@ -6,12 +6,12 @@ const initialState = {
     error: null,
     user: null,
     userID: "",
-    videos: [],
-    videoId: "",
+    videoUrl: "",
     watchlist: [],
     time: 0,
     distance: 0,
-    videoId: "",
+    title: "",
+    thumbnail: ""
 
 };
 
@@ -21,11 +21,14 @@ export const reducer = (state = initialState, action) => {
             error: action.err,
         });
     }
-    if (action.type === actions.SELECT_VIDEO) {
+
+    if (action.type === actions.LOG_USER) {
         return Object.assign({}, state, {
-            currentVideo: action.currentVideo,
-            videoId: action.id,
+            error: null,
+            user: action.user
         });
+    }
+
     }
     if(action.type === actions.DISTANCE){
         return Object.assign({}, state, {
@@ -35,12 +38,16 @@ export const reducer = (state = initialState, action) => {
 
     if (action.type === actions.ADD_VIDEO) {
         return Object.assign({}, state, {
-            videoId
+            videoUrl,
+            thumbnail,
+            title
         });
     }
     if (action.type === actions.GEN_WATCHLIST) {
         return Object.assign({}, state, {
-            watchlist: action.videos
+            watchlist: [],
+            videoUrl,
+            userId
         });
     }
     if (action.type === actions.LOG_USER) {
@@ -52,31 +59,12 @@ export const reducer = (state = initialState, action) => {
     if (action.type === actions.SET_AUTH_TOKEN) {
         return Object.assign({}, state, {
             authToken: action.authToken,
-            loading: false
         });
     }
 
     if (action.type === actions.AUTH_SUCCESS) {
         return Object.assign({}, state, {
-            loading: false,
             user: action.currentUser.username,
             userID: action.currentUser.id
         });
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}

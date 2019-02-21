@@ -1,11 +1,11 @@
 import React from 'react';
 
+// these components will replace lines 16 and 17
+import SearchPage from './search-page';
 
 
-
-
-
-export function  Menu(props){
+// when the user clicks on the buttons below, it will take them to the savedworkouts page as well as the search page where they can search for youtube videos
+export default function  Menu(props){
 
     return(
 
@@ -17,6 +17,4 @@ export function  Menu(props){
         </div>
         </div>
     )
-
-
 }
