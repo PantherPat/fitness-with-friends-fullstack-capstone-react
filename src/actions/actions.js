@@ -19,7 +19,6 @@ export const TIMECALCULATOR = "TIMECALCULATOR"
 export const request = () => ({
     type: REQUEST
 });
-
 export const timeCalulator = () => ({
     type: TIMECALCULATOR,
     distance,
