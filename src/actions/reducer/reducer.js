@@ -16,7 +16,7 @@ const initialState = {
 
 };
 
-export const  = (state = initialState, action) => {
+export const reducer = (state = initialState, action) => {
     if (action.type === actions.ERROR) {
         return Object.assign({}, state, {
             error: action.err,

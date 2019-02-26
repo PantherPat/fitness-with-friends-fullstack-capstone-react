@@ -1,9 +1,9 @@
 import React from 'react';
 
 
-import {SaveWorkouts} from './save-workouts';
+import SaveWorkouts from './save-workouts';
 import {WorkoutSearch} from './workout-search';
-import {ShowSavedWorkouts} from './show-saved-workouts';
+import ShowSavedWorkouts from './show-saved-workouts';
 
 export default function ResultPage(props) {
   return (

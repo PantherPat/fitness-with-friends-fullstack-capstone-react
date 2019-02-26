@@ -1,6 +1,6 @@
 import React from 'react';
 
-import TimeCalculator from './time-calculator';
+import {TimeCalculator} from './time-calculator';
 import TrackedInformation from './tracked-information';
 
 
