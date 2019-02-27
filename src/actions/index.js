@@ -1,4 +1,5 @@
-import { API_ORIGIN } from "../config";
+import API_ORIGIN  from "../config";
+import jwtDecode from "jwt-decode";
 
 
 
@@ -15,39 +16,47 @@ export const DISTANCE = "DISTANCE";
 export const TIME = "TIME";
 export const AVGTIME = "AVGTIME"
 export const TIMECALCULATOR = "TIMECALCULATOR"
+export const THUMBNAIL = "THUMBNAIL"
+export const WATCHLIST ="WATCHLIST"
+export const VIDEOURL ="VIDEOURL"
+export const CURRENTUSER ="CURRENTUSER"
+export const USERID ="USERID"
+export const USERNAME ="USERNAME"
 
 export const request = () => ({
     type: REQUEST
 });
+
+
 export const timeCalulator = () => ({
     type: TIMECALCULATOR,
-    distance,
-    time,
-    avgTime
+    DISTANCE,
+    TIME,
+    AVGTIME
 })
 
 export const logUser = user => ({
     type: LOG_USER,
-    user
+    USERNAME
 })
 
 export const selectVideo = (id) => ({
     type: SELECT_VIDEO,
-    id,
-    thumbnail
+    USERID,
+    THUMBNAIL
 });
 
 
 export const addToWatchlist = video => ({
     type: ADD_VIDEO,
-    watchlist
+    WATCHLIST
 });
 
 export const genWatchList = savedWorkouts => ({
     type: GEN_WATCHLIST,
-    watchlist,
-    thumbnail,
-    videoUrl:
+    WATCHLIST,
+    THUMBNAIL,
+    VIDEOURL
 })
 
 
@@ -57,29 +66,29 @@ export const authRequest = () => ({
 
 export const setAuthToken = authToken => ({
     type: SET_AUTH_TOKEN,
-    authToken
+    SET_AUTH_TOKEN
 });
 
 export const authSuccess = currentUser => ({
     type: AUTH_SUCCESS,
-    currentUser
+    CURRENTUSER
 });
 
 export const fetchErr = err => ({
     type: ERROR,
-    err
+    ERROR
 });
 
 export const distance = () =>({
     type: DISTANCE,
-    currentUser,
-    id
+    CURRENTUSER,
+    USERID
 })
 
 export const time = () => ({
     type: TIME,
-    currentUser,
-    id
+    CURRENTUSER,
+    USERID
 })
 
 
@@ -105,6 +114,34 @@ export const login = user => dispatch => {
     });
 };
 
+const storeAuthInfo = (authToken, dispatch) => {
+    const decodedToken = jwtDecode(authToken);
+    dispatch(setAuthToken(authToken));
+    dispatch(authSuccess(decodedToken));
+    dispatch(logSession({ user: decodedToken.username }));
+};
+
+export const logSession = user => dispatch => {
+    fetch(`${API_ORIGIN}/users/login`, {
+        method: "POST",
+        mode: "cors",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+        .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
+        .then(res => {
+        dispatch(res.loggedIn);
+    });
+};
+
+
 export const signupUser = user => dispatch => {
     dispatch(request());
     fetch(`${API_ORIGIN}/users/create`, {
@@ -125,5 +162,3 @@ export const signupUser = user => dispatch => {
         dispatch(fetchErr(err));
     });
 };
-
-export const

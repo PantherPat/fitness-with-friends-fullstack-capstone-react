@@ -40,22 +40,28 @@ export const reducer = (state = initialState, action) => {
 
 if(action.type === actions.DISTANCE){
     return Object.assign({}, state, {
-        user
+        user: action.user
+    });
+}
+
+    if(action.type === actions.TIME){
+    return Object.assign({}, state, {
+        user: action.user
     });
 }
 
 if (action.type === actions.ADD_VIDEO) {
     return Object.assign({}, state, {
-        videoUrl,
-        thumbnail,
-        title
+        videoUrl: action.videoUrl,
+        thumbnail: action.thumbnail,
+        title: action.title
     });
 }
 if (action.type === actions.GEN_WATCHLIST) {
     return Object.assign({}, state, {
         watchlist: [],
-        videoUrl,
-        thumbnail,
+        videoUrl: action.videoUrl,
+        thumbnail: action.thumbnail
     });
 }
 
