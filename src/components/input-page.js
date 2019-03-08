@@ -24,9 +24,7 @@ export default function InputPage(props) {
       <div id="userDataDiv">
       <ul className="user-data-labels">
       <li className="user-info">Name</li>
-      <li className="user-info">Miles Ran</li>
-      <li className="user-info">Time</li>
-      <li className="user-info">Average Time</li>
+      <TimeCalculator />
       </ul>
       </div>
 

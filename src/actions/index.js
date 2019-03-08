@@ -22,13 +22,24 @@ export const VIDEOURL ="VIDEOURL"
 export const CURRENTUSER ="CURRENTUSER"
 export const USERID ="USERID"
 export const USERNAME ="USERNAME"
+export const TRACKEDINFORMATION ="TRACKEDINFORMATION"
+
+
+
+export const trackedInformation = () => ({
+    type: TRACKEDINFORMATION,
+    USERID,
+    TIME,
+    DISTANCE,
+    AVGTIME
+});
 
 export const request = () => ({
     type: REQUEST
 });
 
 
-export const timeCalulator = () => ({
+export const timeCalculatorValue = () => ({
     type: TIMECALCULATOR,
     DISTANCE,
     TIME,
@@ -92,6 +103,13 @@ export const time = () => ({
 })
 
 
+const storeAuthInfo = (authToken, dispatch) => {
+    const decodedToken = jwtDecode(authToken);
+    dispatch(setAuthToken(authToken));
+    dispatch(authSuccess(decodedToken));
+    dispatch(logSession({ user: decodedToken.username }));
+};
+
 
 export const login = user => dispatch => {
     dispatch(request());
@@ -114,12 +132,6 @@ export const login = user => dispatch => {
     });
 };
 
-const storeAuthInfo = (authToken, dispatch) => {
-    const decodedToken = jwtDecode(authToken);
-    dispatch(setAuthToken(authToken));
-    dispatch(authSuccess(decodedToken));
-    dispatch(logSession({ user: decodedToken.username }));
-};
 
 export const logSession = user => dispatch => {
     fetch(`${API_ORIGIN}/users/login`, {
@@ -161,4 +173,28 @@ export const signupUser = user => dispatch => {
         .catch(err => {
         dispatch(fetchErr(err));
     });
+};
+
+export const tCalculator = (timeCalculator)  => {
+    fetch(`${API_ORIGIN}/time-calculator`, {
+    method: "POST",
+    headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer HELLO`
+    },
+    body: JSON.stringify()
+})
+    .then(res => {
+    if (!res.ok) {
+        return Promise.reject(res.statusText);
+    }
+    return res.json();
+})
+    .then(res => {
+    console.log(res);
+//        dispatch(trackedInformation(res));
+})
+    .catch(err => {
+    console.log(err);
+});
 };

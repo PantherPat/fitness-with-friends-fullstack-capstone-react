@@ -7,17 +7,16 @@ import {connect} from 'react-redux';
 
 import Footer from "./footer";
 import Header from "./header";
-//import Header from './header';
 import InputPage from "./input-page";
 import LandingPage from "./landing-page";
 import Menu from "./menu";
-//import footer from "./components/result-page";
-//import footer from "./components/save-workout";
+//import footer from ".result-page";
+//import footer from ".save-workout";
 import ShowSavedWorkouts from "./show-saved-workouts";
 //import SignInForm from "./sign-in-form";
-//import SignUpForm from "./sign-up-form";
-//import footer from "./components/time-calculator";
-//import footer from "./components/tracked-information";
+import SignUpForm from "./sign-up-form";
+import TimeCalculator from "./time-calculator";
+//import footer from ".tracked-information";
 //import WorkoutSearch from "./workout-search";
 import TrackedInformation from "./tracked-information";
 
@@ -36,8 +35,12 @@ class App extends Component {
                 <div className="container">
                     <Header />
                     <Route exact path="/" component={LandingPage} />
-            <Route exact path="/dashboard/tracked-information" component={TrackedInformation} />
-                    <Route exact path="/dashboard/watchlist" conponent={ShowSavedWorkouts} />
+                    <Route exact path="/show-saved-workouts" component={ShowSavedWorkouts} />
+                    <Route exact path="/tracked-information" component={TrackedInformation} />
+                    <Route exact path="/watchlist" component={ShowSavedWorkouts} />
+                    <Route exact path="/landing-page" component={LandingPage} />
+                    <Route exact path="/footer" component={Footer} />
+                    <Route exact path="/sign-up-form" component={SignUpForm} />
                     <Footer />
                 </div>
             </Router>

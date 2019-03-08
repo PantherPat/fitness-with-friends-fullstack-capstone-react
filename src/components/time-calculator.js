@@ -1,7 +1,4 @@
 import React from 'react';
-//import { connect } from 'react-redux';
-
-//import './feedback.css';
 
 
 
@@ -22,8 +19,10 @@ export class TimeCalculator extends React.Component {
         }
         console.log(timeCalculator)
         if(timeCalculator.time == ""){
-            console.log("please insert ")
+            console.log("please provide time and distance ")
         }
+        this.props.dispatch(tCalculator(timeCalculator));
+        inputs.map(input => (input.value = ""));
     }
 
     render(){

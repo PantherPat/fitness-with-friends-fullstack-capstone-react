@@ -4,10 +4,8 @@ import React from 'react'
 
 export class WorkoutSearch extends React.Component {
 
-
-
-render(){
-  return (
+    render(){
+    return (
 
       <form className="searchForm">
 
