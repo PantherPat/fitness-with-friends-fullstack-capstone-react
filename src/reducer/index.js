@@ -12,7 +12,11 @@ const initialState = {
     distance: 0,
     title: "",
     thumbnail: "",
-    avgTime:0
+    avgTime:0,
+    username: "",
+    TrackedInformation: "",
+
+
 
 };
 
@@ -29,12 +33,22 @@ export const reducer = (state = initialState, action) => {
             user: action.user
         });
     }
+//
+//    if (action.type === action.TIMECALCULATOR){
+//        return Object.assign({}, state, {
+//            distance:0,
+//            time:0,
+//            avgTime:0
+//        })
+//    }
 
-    if (action.type === action.TIMECALCULATOR){
+    if (action.type === action.TRACKEDINFORMATION){
         return Object.assign({}, state, {
             distance:0,
             time:0,
-            avgTime:0
+            avgTime:0,
+            userID: action.user
+
         })
     }
 

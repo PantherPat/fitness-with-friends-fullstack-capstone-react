@@ -1,4 +1,4 @@
-import API_ORIGIN  from "../config";
+import {API_ORIGIN}  from "../config";
 import jwtDecode from "jwt-decode";
 
 
@@ -102,6 +102,16 @@ export const time = () => ({
     USERID
 })
 
+export const avgTime = () => ({
+    type: AVGTIME,
+    distance,
+    time
+})
+
+export const videoUrl = () => ({
+    type: VIDEOURL,
+    VIDEOURL
+})
 
 const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
@@ -176,13 +186,16 @@ export const signupUser = user => dispatch => {
 };
 
 export const tCalculator = (timeCalculator)  => {
+    console.log(timeCalculator)
+
+
     fetch(`${API_ORIGIN}/time-calculator`, {
     method: "POST",
     headers: {
         "content-type": "application/json",
         Authorization: `Bearer HELLO`
     },
-    body: JSON.stringify()
+    body: JSON.stringify(timeCalculator)
 })
     .then(res => {
     if (!res.ok) {

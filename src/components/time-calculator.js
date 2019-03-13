@@ -1,9 +1,9 @@
 import React from 'react';
-
+import * as actions from "../actions";
 
 
 //here the user puts in their distance and time everytime they complete a workout. This needs to be exported to the leadership where we calculate the average of all runs
-export class TimeCalculator extends React.Component {
+export default class TimeCalculator extends React.Component {
     constructor(props){
         super(props);
         this.onSubmit = this.onSubmit.bind(this)
@@ -21,7 +21,7 @@ export class TimeCalculator extends React.Component {
         if(timeCalculator.time == ""){
             console.log("please provide time and distance ")
         }
-        this.props.dispatch(tCalculator(timeCalculator));
+        actions.tCalculator(timeCalculator);
         inputs.map(input => (input.value = ""));
     }
 

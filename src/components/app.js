@@ -41,6 +41,7 @@ class App extends Component {
                     <Route exact path="/landing-page" component={LandingPage} />
                     <Route exact path="/footer" component={Footer} />
                     <Route exact path="/sign-up-form" component={SignUpForm} />
+                    <Route exact path="/time-calculator" component={TimeCalculator} />
                     <Footer />
                 </div>
             </Router>
