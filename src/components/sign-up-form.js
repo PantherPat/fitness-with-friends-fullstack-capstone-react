@@ -1,4 +1,7 @@
 import React from 'react'
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { signupUser } from "../actions";
 
     export class SignUpForm extends React.Component{
       constructor(props){
@@ -14,6 +17,7 @@ import React from 'react'
                     password: this.password.value,
                     confirmPassword: this.confirmPassword.value
                 }
+                this.props.dispatch(signupUser(user));
                 console.log(user)
                 if(user.userName === ""){
                     console.log("please create a user name")
@@ -24,6 +28,8 @@ import React from 'react'
                 if (user.confirmPassword !== user.password){
                     console.log("Passwords do not match")
                 }
+
+
             }
 
         render(){
@@ -56,4 +62,19 @@ import React from 'react'
           )
     };
 }
-export default SignUpForm;
+
+
+const mapStateToProps = function(state) {
+    return {
+        loggedIn: state.user,
+        error: state.error
+    }
+}
+
+export default connect(mapStateToProps)(SignUpForm);
+//export const mapStateToProps = state => ({
+//    loggedIn: state.user,
+//    error: state.error
+//});
+//
+//export default connect(mapStateToProps)(SignUpForm);

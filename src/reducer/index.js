@@ -2,9 +2,7 @@ import * as actions from "../actions";
 
 const initialState = {
     authToken: "",
-    currentVideo: "",
     error: null,
-    user: null,
     userID: "",
     videoUrl: "",
     watchlist: [],
@@ -15,9 +13,7 @@ const initialState = {
     avgTime:0,
     username: "",
     TrackedInformation: "",
-
-
-
+    user: null,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -33,62 +29,48 @@ export const reducer = (state = initialState, action) => {
             user: action.user
         });
     }
-//
-//    if (action.type === action.TIMECALCULATOR){
-//        return Object.assign({}, state, {
-//            distance:0,
-//            time:0,
-//            avgTime:0
-//        })
-//    }
 
-    if (action.type === action.TRACKEDINFORMATION){
+    if (action.type === action.TIMECALCULATOR){
         return Object.assign({}, state, {
-            distance:0,
-            time:0,
-            avgTime:0,
+            distance: action.distance,
+            time: action.time,
+            avgTime: action.avgTime,
             userID: action.user
 
         })
     }
 
-if(action.type === actions.DISTANCE){
-    return Object.assign({}, state, {
-        user: action.user
-    });
-}
-
-    if(action.type === actions.TIME){
-    return Object.assign({}, state, {
-        user: action.user
-    });
-}
-
-if (action.type === actions.ADD_VIDEO) {
+    if (action.type === actions.SAVEDWORKOUTS) {
     return Object.assign({}, state, {
         videoUrl: action.videoUrl,
         thumbnail: action.thumbnail,
         title: action.title
     });
+
 }
-if (action.type === actions.GEN_WATCHLIST) {
+    if (action.type === actions.WATCHLIST) {
     return Object.assign({}, state, {
         watchlist: [],
         videoUrl: action.videoUrl,
-        thumbnail: action.thumbnail
+        thumbnail: action.thumbnail,
+        title: action.title
     });
 }
 
-if (action.type === actions.SET_AUTH_TOKEN) {
-    return Object.assign({}, state, {
-        authToken: action.authToken,
-    });
+    if (action.type === actions.SET_AUTH_TOKEN) {
+        return Object.assign({}, state, {
+            authToken: action.authToken,
+        });
+    }
+
+    if (action.type === actions.AUTH_SUCCESS) {
+        return Object.assign({}, state, {
+            user: action.currentUser.username,
+            userID: action.currentUser.id
+        });
+    }
+    return state;
 }
 
-if (action.type === actions.AUTH_SUCCESS) {
-    return Object.assign({}, state, {
-        user: action.currentUser.username,
-        userID: action.currentUser.id
-    });
-}
-}
+
+

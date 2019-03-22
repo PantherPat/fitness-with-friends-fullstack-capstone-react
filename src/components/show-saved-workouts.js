@@ -1,7 +1,6 @@
 import React from 'react';
-//import { connect } from 'react-redux';
+import SaveVideos from './save-videos';
 
-//import './feedback.css';
 
 export default function ShowSavedWorkouts() {
 
@@ -9,7 +8,7 @@ export default function ShowSavedWorkouts() {
 
         <ul className="addToFavoritesList">
         <li id="savedWorkoutLinks">
-        <a href="" target="_blank">  <img src="images/GitHub-Mark-32px.png" alt=""/> Link to workout page</a>
+        <SaveVideos />
         </li>
         </ul>
     );

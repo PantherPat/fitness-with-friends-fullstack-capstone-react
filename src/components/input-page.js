@@ -2,6 +2,7 @@ import React from 'react';
 
 import TimeCalculator from './time-calculator';
 import TrackedInformation from './tracked-information';
+import Menu from './menu';
 
 
 // need to take user input of time and distance and caluclate them on the leaderboard
@@ -9,7 +10,7 @@ export default function InputPage(props) {
 
   return (
       <main role="main">
-
+      <Menu />
       <div id="introSection">
       <h1 id="secondPageWelcome">Hello,Name</h1>
       </div>

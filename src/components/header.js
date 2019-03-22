@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Menu from './menu'
-
-import './header.css';
+import Menu from './menu';
 
 export default function Header(props) {
   return (

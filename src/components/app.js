@@ -13,7 +13,7 @@ import Menu from "./menu";
 //import footer from ".result-page";
 //import footer from ".save-workout";
 import ShowSavedWorkouts from "./show-saved-workouts";
-//import SignInForm from "./sign-in-form";
+import SignInForm from "./sign-in-form";
 import SignUpForm from "./sign-up-form";
 import TimeCalculator from "./time-calculator";
 //import footer from ".tracked-information";
@@ -42,6 +42,7 @@ class App extends Component {
                     <Route exact path="/footer" component={Footer} />
                     <Route exact path="/sign-up-form" component={SignUpForm} />
                     <Route exact path="/time-calculator" component={TimeCalculator} />
+                    <Route exact path="/sign-in-form" component={SignInForm} />
                     <Footer />
                 </div>
             </Router>
@@ -51,7 +52,8 @@ class App extends Component {
 }
 
 export const mapStateToProps = state => ({
-
+    loggedIn: state.user,
+    error: state.error
 });
 
 export default connect(mapStateToProps)(App);

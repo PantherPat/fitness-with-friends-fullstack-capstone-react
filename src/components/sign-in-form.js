@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from "react-redux";
 
 
 export class SignInForm extends React.Component {
@@ -61,5 +62,7 @@ export const mapStateToProps = state => ({
     loggedIn: state.user,
     error: state.error
 })
+
+export default connect(mapStateToProps)(SignInForm);
 
 

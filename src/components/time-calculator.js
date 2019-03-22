@@ -19,7 +19,10 @@ export default class TimeCalculator extends React.Component {
         }
         console.log(timeCalculator)
         if(timeCalculator.time == ""){
-            console.log("please provide time and distance ")
+            console.log("please provide your time ")
+        }
+        if(timeCalculator.distance == ""){
+            console.log("please provide the distance ran")
         }
         actions.tCalculator(timeCalculator);
         inputs.map(input => (input.value = ""));
@@ -39,6 +42,5 @@ export default class TimeCalculator extends React.Component {
       </fieldset>
       <button>Submit</button>
       </form>
-  );
-}
+    )};
 }
