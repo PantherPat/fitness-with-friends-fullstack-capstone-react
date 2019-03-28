@@ -111,14 +111,14 @@ export const logSession = user => dispatch => {
         return res.json();
     })
         .then(res => {
-        this.props.dispatch(res.loggedIn);
+        dispatch(res.loggedIn);
     });
 };
 
 export const signupUser = user => dispatch => {
     dispatch(request());
     console.log(user);
-    fetch(`/auth/signup`, {
+    fetch(`${API_ORIGIN}/auth/signup/`, {
         method: "POST",
         headers: {
             "content-type": "application/json"

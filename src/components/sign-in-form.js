@@ -15,6 +15,7 @@ export class SignInForm extends React.Component {
             userName: this.username.value,
             password: this.password.value,
         }
+        this.props.dispatch(user);
         console.log(user)
         if(user.username === ""){
             console.log("please enter user name")
