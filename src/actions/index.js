@@ -76,7 +76,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = user => dispatch => {
     dispatch(request());
-    fetch(`${API_ORIGIN}/auth/login`, {
+    fetch(`/auth/login`, {
         method: "POST",
         headers: {
             "content-type": "application/json"
@@ -96,7 +96,7 @@ export const login = user => dispatch => {
 };
 
 export const logSession = user => dispatch => {
-    fetch(`${API_ORIGIN}/auth/userLoggedIn`, {
+    fetch(`/auth/userLoggedIn`, {
         method: "POST",
         mode: "cors",
         headers: {
@@ -111,14 +111,14 @@ export const logSession = user => dispatch => {
         return res.json();
     })
         .then(res => {
-        dispatch(res.loggedIn);
+        this.props.dispatch(res.loggedIn);
     });
 };
 
 export const signupUser = user => dispatch => {
     dispatch(request());
     console.log(user);
-    fetch(`${API_ORIGIN}/auth/signup`, {
+    fetch(`/auth/signup`, {
         method: "POST",
         headers: {
             "content-type": "application/json"
@@ -142,7 +142,7 @@ export const tCalculator = (timeCalculator)  => {
     console.log(timeCalculator)
 
 
-    fetch(`${API_ORIGIN}/time-calculator`, {
+    fetch(`/time-calculator`, {
     method: "POST",
     headers: {
         "content-type": "application/json",
@@ -168,7 +168,7 @@ export const tCalculator = (timeCalculator)  => {
 // getWatchlist gets saved videos
 export const getWatchlist = (userId, token) => dispatch => {
     dispatch(request());
-    fetch(`${API_ORIGIN}/videos/${userId}`, {
+    fetch(`/show-saved-workouts/${userId}`, {
         mode: "cors",
         headers: {
             "Access-Control-Allow-Origin": "*",
@@ -200,7 +200,7 @@ export const addVideo = (video,userID, token) => dispatch => {
     const userVideo = { video: videoObj, id: userID };
 
     dispatch(request());
-    fetch(`${API_ORIGIN}/saved-workouts`, {
+    fetch(`/saved-workouts`, {
         method: "POST",
         headers: {
             "content-type": "application/json",

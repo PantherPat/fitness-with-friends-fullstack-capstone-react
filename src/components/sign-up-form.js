@@ -13,7 +13,7 @@ import { signupUser } from "../actions";
                 const inputs = [this.username, this.password, this.confirmPassword]
 
                 const user = {
-                    userName: this.userName.value,
+                    username: this.userName.value,
                     password: this.password.value,
                     confirmPassword: this.confirmPassword.value
                 }
@@ -28,8 +28,6 @@ import { signupUser } from "../actions";
                 if (user.confirmPassword !== user.password){
                     console.log("Passwords do not match")
                 }
-
-
             }
 
         render(){
@@ -69,12 +67,6 @@ const mapStateToProps = function(state) {
         loggedIn: state.user,
         error: state.error
     }
-}
+};
 
 export default connect(mapStateToProps)(SignUpForm);
-//export const mapStateToProps = state => ({
-//    loggedIn: state.user,
-//    error: state.error
-//});
-//
-//export default connect(mapStateToProps)(SignUpForm);

@@ -1,9 +1,9 @@
 import React from 'react';
-import TimeCalculator from './time-calculator';
 
 
 // need to put the user name here
 // need to import and caluclate their time and average time
+// need to dispatch from action for the output
 export default function TrackedInformation(props) {
     return (
 
