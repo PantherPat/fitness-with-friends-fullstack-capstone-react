@@ -14,13 +14,22 @@ const initialState = {
     username: "",
     TrackedInformation: "",
     user: null,
+    inputPage: []
 };
+
+
 
 export const reducer = (state = initialState, action) => {
     if (action.type === actions.ERROR) {
         return Object.assign({}, state, {
             error: action.err,
         });
+    }
+
+    if (action.typer === actions.INPUT_PAGE){
+        return Object.assign({}, state, {
+            inputPage: action.user
+        })
     }
 
     if (action.type === actions.LOG_USER) {
