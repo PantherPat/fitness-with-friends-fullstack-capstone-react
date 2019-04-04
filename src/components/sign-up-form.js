@@ -10,12 +10,11 @@ import { signupUser } from "../actions";
       }
             onSubmit(e){
                 e.preventDefault();
-                const inputs = [this.username, this.password, this.confirmPassword]
+                const inputs = [this.username, this.password]
 
                 const user = {
                     username: this.userName.value,
                     password: this.password.value,
-                    confirmPassword: this.confirmPassword.value
                 }
                 this.props.dispatch(signupUser(user));
                 console.log(user)
@@ -25,12 +24,12 @@ import { signupUser } from "../actions";
                 if (user.password === ""){
                     console.log("please create a password")
                 }
-                if (user.confirmPassword !== user.password){
-                    console.log("Passwords do not match")
-                }
             }
 
         render(){
+            if (this.props.loggedIn) {
+                return <Redirect to="/input-page" />;
+              }
         return (
             <form className="signUpForm" onSubmit={this.onSubmit}>
 
@@ -62,7 +61,7 @@ import { signupUser } from "../actions";
 }
 
 
-const mapStateToProps = function(state) {
+export const mapStateToProps = function(state) {
     return {
         loggedIn: state.user,
         error: state.error

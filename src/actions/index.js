@@ -81,7 +81,7 @@ const storeAuthInfo = (authToken, dispatch) => {
 
 export const login = user => dispatch => {
     dispatch(request());
-    fetch(`${API_ORIGIN}/auth/login`, {
+    fetch(`${API_ORIGIN}/auth/login/`, {
         method: "POST",
         headers: {
             "content-type": "application/json"
@@ -89,6 +89,7 @@ export const login = user => dispatch => {
         body: JSON.stringify(user)
     })
         .then(res => {
+            console.log(res);
         if (!res.ok) {
             return Promise.reject(res.statusText);
         }

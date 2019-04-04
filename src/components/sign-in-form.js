@@ -1,6 +1,7 @@
 import React from 'react'
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-
+import { login } from "../actions";
 
 export class SignInForm extends React.Component {
     constructor(props){
@@ -8,15 +9,17 @@ export class SignInForm extends React.Component {
         this.onSubmit = this.onSubmit.bind(this)
     }
     onSubmit(e){
+
         e.preventDefault();
+        console.log(this.props);
         const inputs = [this.username, this.password]
 
         const user = {
             userName: this.username.value,
             password: this.password.value,
         }
-        this.props.dispatch(user);
-        console.log(user)
+        console.log(user);
+        this.props.dispatch(login(user));
         if(user.username === ""){
             console.log("please enter user name")
         }
@@ -26,6 +29,9 @@ export class SignInForm extends React.Component {
     }
 
 render(){
+    if (this.props.loggedIn) {
+        return <Redirect to="/input-page" />;
+      }
   return (
       <form onSubmit={this.onSubmit}
             className="sign-in-form"

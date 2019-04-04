@@ -43,6 +43,7 @@ class App extends Component {
                     <Route exact path="/sign-up-form" component={SignUpForm} />
                     <Route exact path="/time-calculator" component={TimeCalculator} />
                     <Route exact path="/sign-in-form" component={SignInForm} />
+                    <Route exact path="/input-page" component={InputPage} />
                     <Footer />
                 </div>
             </Router>

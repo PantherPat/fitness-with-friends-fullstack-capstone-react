@@ -26,7 +26,7 @@ export default function InputPage(props) {
       <ul className="user-data-labels">
       <li className="user-info">Name</li>
       <TimeCalculator />
-      </ul>
+      </ul>x
       </div>
 
       <TrackedInformation />
@@ -45,3 +45,4 @@ export default function InputPage(props) {
       </main>
   );
 }
+

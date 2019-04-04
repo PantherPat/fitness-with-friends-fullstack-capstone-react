@@ -1,6 +1,6 @@
 import React from 'react';
 
-import {SignInForm} from './sign-in-form';
+import SignInForm from './sign-in-form';
 import SignUpForm from './sign-up-form';
 
 
