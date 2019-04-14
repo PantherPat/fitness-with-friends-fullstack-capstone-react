@@ -6,6 +6,11 @@ import { signupUser } from "../actions";
     export class SignUpForm extends React.Component{
       constructor(props){
           super(props);
+          this.state =
+          {userName: "",
+          distance: "",
+          time: "",
+          average: ""};
             this.onSubmit = this.onSubmit.bind(this)
       }
             onSubmit(e){

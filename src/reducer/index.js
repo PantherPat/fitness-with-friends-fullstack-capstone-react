@@ -14,7 +14,8 @@ const initialState = {
     username: "",
     TrackedInformation: "",
     user: null,
-    inputPage: []
+    inputPage: [],
+    loggedIn:false
 };
 
 
@@ -35,7 +36,8 @@ export const reducer = (state = initialState, action) => {
     if (action.type === actions.LOG_USER) {
         return Object.assign({}, state, {
             error: null,
-            user: action.user
+            user: action.user,
+            loggedIn: true
         });
     }
 

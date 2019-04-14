@@ -2,35 +2,44 @@ import React from 'react'
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { login } from "../actions";
+import InputPage from './input-page'
 
 export class SignInForm extends React.Component {
     constructor(props){
         super(props);
+        this.state =
+            {userName: "",
+            distance: "",
+            time: "",
+            average: ""};
         this.onSubmit = this.onSubmit.bind(this)
     }
     onSubmit(e){
 
         e.preventDefault();
-        console.log(this.props);
         const inputs = [this.username, this.password]
 
+        this.setState({
+            userName: this.username.value
+});
         const user = {
             userName: this.username.value,
             password: this.password.value,
         }
-        console.log(user);
-        this.props.dispatch(login(user));
-        if(user.username === ""){
+        if(user.userName === ""){
             console.log("please enter user name")
         }
         if (user.password === ""){
             console.log("please enter correct password")
+            
         }
+        this.props.dispatch(login(user));
     }
 
 render(){
-    if (this.props.loggedIn) {
-        return <Redirect to="/input-page" />;
+    console.log(this.state.userName);
+    if (this.state.userName) {
+        return <Redirect to="/input-page" render={() => <InputPage  userName = {this.state.userName} distance ={this.state.distance} time ={this.state.time} average = {this.state.average} />} />;
       }
   return (
       <form onSubmit={this.onSubmit}

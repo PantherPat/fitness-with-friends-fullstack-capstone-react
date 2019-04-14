@@ -75,11 +75,13 @@ const storeAuthInfo = (authToken, dispatch) => {
     const decodedToken = jwtDecode(authToken);
     dispatch(setAuthToken(authToken));
     dispatch(authSuccess(decodedToken));
+    console.log(decodedToken.username)
     dispatch(logSession({ user: decodedToken.username }));
 };
 
 
 export const login = user => dispatch => {
+    console.log(user);
     dispatch(request());
     fetch(`${API_ORIGIN}/auth/login/`, {
         method: "POST",

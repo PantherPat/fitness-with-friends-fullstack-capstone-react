@@ -29,18 +29,20 @@ export default class TimeCalculator extends React.Component {
     }
 
     render(){
-  return (
+        return (
+            <form className="user-input-form" onSubmit={this.onSubmit}>
+                <fieldset>
+                    <label htmlFor="distance"></label>
+                    <input ref={input =>(this.distance = input)}type="number" id="runningDistance" placeholder="Distance"/>
+                </fieldset>
 
-      <form className="user-input-form" onSubmit={this.onSubmit}>
-      <fieldset>
-      <label htmlFor="distance"></label>
-      <input ref={input =>(this.distance = input)}type="number" id="runningDistance" placeholder="Distance"/>
-      </fieldset>
-      <fieldset>
-      <label htmlFor="time"></label>
-        <input ref={input =>(this.time = input)}type="number" id="runningTime" placeholder="Time"/>
-      </fieldset>
-      <button>Submit</button>
-      </form>
-    )};
+                <fieldset>
+                    <label htmlFor="time"></label>
+                    <input ref={input =>(this.time = input)}type="number" id="runningTime" placeholder="Time"/>
+                </fieldset>
+
+                <button>Submit</button>
+            </form>
+            )
+        };
 }

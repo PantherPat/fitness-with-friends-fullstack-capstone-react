@@ -43,7 +43,9 @@ class App extends Component {
                     <Route exact path="/sign-up-form" component={SignUpForm} />
                     <Route exact path="/time-calculator" component={TimeCalculator} />
                     <Route exact path="/sign-in-form" component={SignInForm} />
-                    <Route exact path="/input-page" component={InputPage} />
+                    {/* <Route exact path="/input-page" component={InputPage} /> */}
+                    <Route exact path="/input-page" render={() => <InputPage userName = {this.props.userName} distance ={this.props.distance} time ={this.props.time} average = {this.props.average} />} />;
+
                     <Footer />
                 </div>
             </Router>

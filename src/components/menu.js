@@ -7,13 +7,12 @@ import WorkoutSearch from './workout-search'
 export default function  Menu(props){
 
     return(
-
         <div className="dropdown">
-        <button className="dropbtn">Menu</button>
-        <div className="dropdown-content">
-        <Link to="/show-saved-workouts">Saved Workouts</Link>
-        <Link to="/workout-search">Search Workouts</Link>
-        </div>
+            <button className="dropbtn">Menu</button>
+            <div className="dropdown-content">
+                <Link to="/show-saved-workouts">Saved Workouts</Link>
+                <Link to="/workout-search">Search Workouts</Link>
+            </div>
         </div>
     )
 }
