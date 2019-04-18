@@ -12,12 +12,12 @@ export default function Footer(props) {
                 <li><a href="https://www.linkedin.com/in/patrick-keshishian-81932068/" target="_blank">
                     <img className="social-images" id="linkedinImage" src="images/In-Black-128px-R.png" alt=""/></a>
                 </li>
-                
+
                 <li><a href="https://github.com/PantherPat" target="_blank"> <img className="social-images" id="githubImage" src="images/GitHub-Mark-32px.png" alt=""/></a>
                 </li>
             </ul>
         </footer>
-    );
+    )
 }
 
 

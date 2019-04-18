@@ -1,5 +1,6 @@
 import {API_ORIGIN}  from "../config";
 import jwtDecode from "jwt-decode";
+import { connect } from "react-redux";
 
 
 
@@ -167,7 +168,7 @@ export const tCalculator = (timeCalculator)  => {
 })
     .then(res => {
     console.log(res);
-//        dispatch(trackedInformation(res));
+    //    dispatch(trackedInformation(res));
 })
     .catch(err => {
     console.log(err);

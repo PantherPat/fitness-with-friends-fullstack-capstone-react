@@ -17,7 +17,7 @@ import SignInForm from "./sign-in-form";
 import SignUpForm from "./sign-up-form";
 import TimeCalculator from "./time-calculator";
 //import footer from ".tracked-information";
-//import WorkoutSearch from "./workout-search";
+import WorkoutSearch from "./workout-search";
 import TrackedInformation from "./tracked-information";
 
 
@@ -40,11 +40,12 @@ class App extends Component {
                     <Route exact path="/watchlist" component={ShowSavedWorkouts} />
                     <Route exact path="/landing-page" component={LandingPage} />
                     <Route exact path="/footer" component={Footer} />
+                    <Route exact path="/workout-search" component={WorkoutSearch} />
                     <Route exact path="/sign-up-form" component={SignUpForm} />
                     <Route exact path="/time-calculator" component={TimeCalculator} />
                     <Route exact path="/sign-in-form" component={SignInForm} />
                     {/* <Route exact path="/input-page" component={InputPage} /> */}
-                    <Route exact path="/input-page" render={() => <InputPage userName = {this.props.userName} distance ={this.props.distance} time ={this.props.time} average = {this.props.average} />} />;
+                    <Route exact path="/input-page" render={() => <InputPage userName = {this.props.username} distance ={this.props.distance} time ={this.props.time} average = {this.props.average} />} />
 
                     <Footer />
                 </div>

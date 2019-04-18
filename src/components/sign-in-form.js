@@ -8,7 +8,7 @@ export class SignInForm extends React.Component {
     constructor(props){
         super(props);
         this.state =
-            {userName: "",
+            {username: "",
             distance: "",
             time: "",
             average: ""};
@@ -20,13 +20,13 @@ export class SignInForm extends React.Component {
         const inputs = [this.username, this.password]
 
         this.setState({
-            userName: this.username.value
+            username: this.username.value
 });
         const user = {
-            userName: this.username.value,
+            username: this.username.value,
             password: this.password.value,
         }
-        if(user.userName === ""){
+        if(user.username === ""){
             console.log("please enter user name")
         }
         if (user.password === ""){
@@ -37,8 +37,8 @@ export class SignInForm extends React.Component {
     }
 
 render(){
-    console.log(this.state.userName);
-    if (this.state.userName) {
+    console.log(this.state.username);
+    if (this.state.username) {
         return <Redirect to="/input-page" render={() => <InputPage  userName = {this.state.userName} distance ={this.state.distance} time ={this.state.time} average = {this.state.average} />} />;
       }
   return (

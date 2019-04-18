@@ -36,7 +36,7 @@ export default class WorkoutSearch extends React.Component {
       <button id="searchButton" type="submit">Search</button>
 
       </form>
-  );
+  )
 }
 }
 

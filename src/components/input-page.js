@@ -2,11 +2,47 @@ import React from 'react';
 
 import TimeCalculator from './time-calculator';
 import TrackedInformation from './tracked-information';
-import Menu from './menu';
 
 
 // need to take user input of time and distance and caluclate them on the leaderboard
-export default function InputPage(props) {
+export default class InputPage extends React.Component {
+  constructor(props){
+      super(props);
+      this.state = {
+          time: 0,
+          distance: 0,
+          average: 0
+      }
+      // this.handleChange = this.handleChange.bind(this)
+  }
+
+  handleSubmit(time,distance){
+    // console.log(time,distance)
+    // e.preventDefault();
+    const timeCalculator = {
+        time,
+        distance,
+        average: distance/time
+    }
+  
+    this.setState ({
+        time: time,
+        distance: distance,
+        average: distance/time
+    })
+  
+    // console.log(timeCalculator)
+    // if(timeCalculator.time == ""){
+    //     console.log("please provide your time ")
+    // }
+    // if(timeCalculator.distance == ""){
+    //     console.log("please provide the distance ran")
+    // }
+    // actions.tCalculator(timeCalculator);
+    // inputs.map(input => (input.value = ""));
+}
+  render(){
+    console.log(this.state.distance, this.state.time)
 
   return (
       <main role="main">
@@ -21,15 +57,16 @@ export default function InputPage(props) {
 
           <div className="leader-board">
             <h1 id="leaderBoardTitle">LeaderBoard</h1>
-            <TrackedInformation userName = {props.userName} distance ={props.distance} time ={props.time} average = {props.average} />
+            <TrackedInformation userName = { this.state.userName} distance ={this.state.distance} time ={this.state.time} average = {this.state.average} />
           </div>
 
           <section className="workout-information">
-            <TimeCalculator />
+            <TimeCalculator onHandleSubmit={(time,distance) => this.handleSubmit(time,distance)} />
           </section>
 
         </section>
       </main>
-  );
+  )}
 }
+
 
