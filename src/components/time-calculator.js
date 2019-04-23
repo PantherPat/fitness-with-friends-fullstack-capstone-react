@@ -1,9 +1,10 @@
 import React from 'react';
-import * as actions from "../actions";
+import {tCalculator} from '../actions';
+import { connect } from "react-redux";
 
 
 //here the user puts in their distance and time everytime they complete a workout. This needs to be exported to the leadership where we calculate the average of all runs
-export default class TimeCalculator extends React.Component {
+export class TimeCalculator extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -15,7 +16,6 @@ export default class TimeCalculator extends React.Component {
     }
     handleChange(event){
         event.preventDefault();
-
         
         let inputTime = event.target['time'].value;
         let inputDistance = event.target['distance'].value;
@@ -24,21 +24,14 @@ export default class TimeCalculator extends React.Component {
         this.setState = {
             time: inputTime,
             distance: inputDistance,
-            average: (inputTime/inputDistance)
         }
         console.log(inputTime,inputDistance);
+        this.props.dispatch(tCalculator(inputTime, inputDistance));
         // console.log(state.time, state.distance)
         this.props.onHandleSubmit(inputTime, inputDistance)
-
-
-        
-        // inputs.map(input => (input.value = ""));
-
-        // changed ref={input =>(this.time = input)}
     }
 
     render(){
-        console.log(this.state.distance, this.state.time)
         return (
             <form className="user-input-form" onSubmit={this.handleChange}>
                 <fieldset>
@@ -62,3 +55,11 @@ export default class TimeCalculator extends React.Component {
             </form>
             )};
 }
+
+export const mapStateToProps = state => ({
+    loggedIn: state.user,
+    error: state.error,
+    distance: state.distance,
+    time: state.time,
+})
+export default connect(mapStateToProps)(TimeCalculator);

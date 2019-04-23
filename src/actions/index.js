@@ -148,10 +148,10 @@ export const signupUser = user => dispatch => {
     });
 };
 
-export const tCalculator = (timeCalculator)  => {
-    console.log(timeCalculator)
+export const tCalculator = (time,distance)  => dispatch =>{
+    console.log(time,distance)
 
-
+    let timeCalculator = {time,distance}
     fetch(`${API_ORIGIN}/time-calculator`, {
     method: "POST",
     headers: {
@@ -168,12 +168,39 @@ export const tCalculator = (timeCalculator)  => {
 })
     .then(res => {
     console.log(res);
-    //    dispatch(trackedInformation(res));
+    // return res.json();
+    dispatch(getLeaderboardScores(res));
+    // dispatch(inputPage(res.loggedIn));
 })
     .catch(err => {
     console.log(err);
 });
 };
+
+export const getLeaderboardScores = () => dispatch => {
+    dispatch(request());
+    fetch(`${API_ORIGIN}/get-leaderboard-scores/`, {
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            Authorization: `Bearer HELLO`
+        }
+    })
+        .then(res => {
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
+        .then(res => {
+            console.log(res)
+        // dispatch(res.videos);
+    })
+        .catch(err => {
+        dispatch(fetchErr(err));
+    });
+};
+
 
 // getWatchlist gets saved videos
 export const getWatchlist = (userId, token) => dispatch => {

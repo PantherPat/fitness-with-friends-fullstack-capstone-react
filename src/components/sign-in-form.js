@@ -70,8 +70,8 @@ render(){
       <p>To Register <a className="showRegister" href="#"> click here</a></p>
 
       </form>
-  );
-}
+    );
+    }
 }
 
 export const mapStateToProps = state => ({

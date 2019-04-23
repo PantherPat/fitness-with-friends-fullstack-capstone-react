@@ -19,7 +19,7 @@ export default function TrackedInformaion(props) {
                     {props.time}
                 </li>
                 <li className = "avgTime">
-                    {/* {props.distance/props.time} */}
+                    {props.distance/props.time}
                 </li>
             </ul>
         </div>
