@@ -16,6 +16,13 @@ export const AUTH_REQUEST = "AUTH_REQUEST";
 export const SET_AUTH_TOKEN = "SET_AUTH_TOKEN";
 export const AUTH_SUCCESS = "AUTH_SUCCESS";
 export const INPUT_PAGE = "INPUT_PAGE"
+export const DISPLAY_LEADERBOARD = "DISPLAY_LEADERBOARD"
+
+
+export const displayLeaderboard = (results) => ({
+    type: DISPLAY_LEADERBOARD,
+    results
+});
 
 
 export const inputPage = (user) => ({
@@ -194,7 +201,7 @@ export const getLeaderboardScores = () => dispatch => {
     })
         .then(res => {
             console.log(res)
-        // dispatch(res.videos);
+        dispatch(displayLeaderboard(res.leaderBoardScores));
     })
         .catch(err => {
         dispatch(fetchErr(err));

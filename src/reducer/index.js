@@ -27,6 +27,13 @@ export const reducer = (state = initialState, action) => {
         });
     }
 
+    if (action.type === actions.DISPLAY_LEADERBOARD) {
+        return Object.assign({}, state, {
+          error: null,
+          results: action.results
+        });
+      }
+
     if (action.typer === actions.INPUT_PAGE){
         return Object.assign({}, state, {
             inputPage: action.user

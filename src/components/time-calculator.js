@@ -18,7 +18,7 @@ export class TimeCalculator extends React.Component {
         event.preventDefault();
         
         let inputTime = event.target['time'].value;
-        let inputDistance = event.target['distance'].value;
+        let inputDistance = event.target['distance'].value; 
        
 
         this.setState = {
@@ -27,6 +27,7 @@ export class TimeCalculator extends React.Component {
         }
         console.log(inputTime,inputDistance);
         this.props.dispatch(tCalculator(inputTime, inputDistance));
+        console.log(this.props);
         // console.log(state.time, state.distance)
         this.props.onHandleSubmit(inputTime, inputDistance)
     }

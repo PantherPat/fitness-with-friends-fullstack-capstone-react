@@ -30,17 +30,11 @@ export default class InputPage extends React.Component {
         distance: distance,
         average: distance/time
     })
-  
-    // console.log(timeCalculator)
-    // if(timeCalculator.time == ""){
-    //     console.log("please provide your time ")
-    // }
-    // if(timeCalculator.distance == ""){
-    //     console.log("please provide the distance ran")
-    // }
-    // actions.tCalculator(timeCalculator);
-    // inputs.map(input => (input.value = ""));
 }
+
+// displayLeaderBoardScores(time,distance,average)
+
+
   render(){
     console.log(this.state.distance, this.state.time)
 
