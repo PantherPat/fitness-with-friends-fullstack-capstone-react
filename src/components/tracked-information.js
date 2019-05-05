@@ -20,6 +20,10 @@ import {displayLeaderboard} from '../actions'
     render(){
         let displayLeaderboardResults = ""
 
+        // takeAverage(time,distance,average){
+        //     for(i )
+        // }
+
             if (this.props.results == undefined){
                 alert("No Results")
             }

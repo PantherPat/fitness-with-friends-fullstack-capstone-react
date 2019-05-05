@@ -12,7 +12,6 @@ import LandingPage from "./landing-page";
 import Menu from "./menu";
 //import footer from ".result-page";
 //import footer from ".save-workout";
-import ShowSavedWorkouts from "./show-saved-workouts";
 import SignInForm from "./sign-in-form";
 import SignUpForm from "./sign-up-form";
 import TimeCalculator from "./time-calculator";
@@ -35,9 +34,7 @@ class App extends Component {
                 <div className="container">
                     <Header />
                     <Route exact path="/" component={LandingPage} />
-                    <Route exact path="/show-saved-workouts" component={ShowSavedWorkouts} />
                     <Route exact path="/tracked-information" component={TrackedInformation} />
-                    <Route exact path="/watchlist" component={ShowSavedWorkouts} />
                     <Route exact path="/landing-page" component={LandingPage} />
                     <Route exact path="/footer" component={Footer} />
                     <Route exact path="/workout-search" component={WorkoutSearch} />

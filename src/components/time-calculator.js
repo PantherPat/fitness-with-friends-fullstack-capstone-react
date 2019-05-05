@@ -35,6 +35,7 @@ export class TimeCalculator extends React.Component {
     render(){
         return (
             <form className="user-input-form" onSubmit={this.handleChange}>
+                <input type="hidden" id="loggedInUserName" value={this.state.username} />
                 <fieldset>
                     <label htmlFor="distance"></label>
                     <input distance = {this.state.distance} 

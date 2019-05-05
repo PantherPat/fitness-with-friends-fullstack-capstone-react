@@ -30,7 +30,7 @@ export default class WorkoutSearch extends React.Component {
         type="text"
         placeholder="Workouts"
         ref= {input => (this.textInput = input)}
-        value="HIIT, Strength, Endurance"/>
+        placeholder="HIIT, Strength, Endurance"/>
 
       </fieldset>
       <button id="searchButton" type="submit">Search</button>
@@ -39,4 +39,3 @@ export default class WorkoutSearch extends React.Component {
   )
 }
 }
-

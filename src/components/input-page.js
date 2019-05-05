@@ -63,4 +63,3 @@ export default class InputPage extends React.Component {
   )}
 }
 
-

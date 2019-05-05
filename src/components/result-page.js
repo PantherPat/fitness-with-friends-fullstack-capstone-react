@@ -3,7 +3,6 @@ import React from 'react';
 
 import SaveVideos from './save-videos';
 import WorkoutSearch from './workout-search';
-import ShowSavedWorkouts from './show-saved-workouts';
 
 export default function ResultPage(props) {
   return (
@@ -28,7 +27,6 @@ export default function ResultPage(props) {
         </section>
         <section>
           <h2>Saved Workouts</h2>
-          <ShowSavedWorkouts />
       </section>
 
       </main>
