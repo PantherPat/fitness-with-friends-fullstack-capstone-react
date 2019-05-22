@@ -8,6 +8,8 @@ import {displayLeaderboard} from '../actions'
 // need to import and caluclate their time and average time
 // need to dispatch from action for the output
 
+// HOW WOULD I START BREAKING THIS PROBLEM DOWN? IT LOADS ON BACKEND BUT NOT ON FRONT END. WHAT STEPS WOULD I NEED TO TAKE?
+
     export class TrackedInformaion extends React.Component {
         constructor(props){
             super(props);
@@ -19,18 +21,15 @@ import {displayLeaderboard} from '../actions'
         }
     render(){
         let displayLeaderboardResults = ""
+        //props are not being sent properly (no data)
 
-        // takeAverage(time,distance,average){
-        //     for(i )
-        // }
+        
 
             if (this.props.results == undefined){
                 alert("No Results")
             }
             else{
                 let resultsOutput = this.props.results
-                console.log(this.props.results)
-                console.log(resultsOutput.length)
                  displayLeaderboardResults = this.props.results.map((data, index) => (
                    
                     <ul key={index} className = "user-input">
@@ -62,8 +61,10 @@ import {displayLeaderboard} from '../actions'
     }
 }
 
-    export const mapStateToProps = state => ({
-       results: state.results
-      });
+    const mapStateToProps = state => {
+    console.log(state)
+    return {   results: state.results,
+        displayLeaderboard}
+      };
       
       export default connect(mapStateToProps)(TrackedInformaion);

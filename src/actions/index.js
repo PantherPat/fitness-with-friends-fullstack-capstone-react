@@ -1,10 +1,6 @@
-import {
-    API_ORIGIN
-} from "../config";
+import {API_ORIGIN}  from "../config";
 import jwtDecode from "jwt-decode";
-import {
-    connect
-} from "react-redux";
+import { connect } from "react-redux";
 
 
 
@@ -23,18 +19,18 @@ export const INPUT_PAGE = "INPUT_PAGE"
 export const DISPLAY_LEADERBOARD = "DISPLAY_LEADERBOARD"
 
 
-export const displayLeaderboard = (results) => ({
+export const displayLeaderboard = (data) => ({
     type: DISPLAY_LEADERBOARD,
-    results
+    data
 });
 
 
 export const inputPage = (user) => ({
-    type: INPUT_PAGE,
-    user
-});
+        type: INPUT_PAGE,
+        user
+    });
 
-export const timeCalculator = (time, distance, avgTime, userID) => ({
+export const timeCalculator = (time,distance,avgTime, userID) => ({
     type: TIMECALCULATOR,
     userID,
     time,
@@ -66,7 +62,7 @@ export const logUser = user => ({
     user
 })
 
-export const watchList = (watchlist, thumbnail, videoUrl) => ({
+export const watchList = (watchlist,thumbnail,videoUrl) => ({
     type: WATCHLIST,
     watchlist,
     thumbnail,
@@ -88,9 +84,7 @@ const storeAuthInfo = (authToken, dispatch) => {
     dispatch(setAuthToken(authToken));
     dispatch(authSuccess(decodedToken));
     console.log(decodedToken.username)
-    dispatch(logSession({
-        user: decodedToken.username
-    }));
+    dispatch(logSession({ user: decodedToken.username }));
 };
 
 
@@ -98,123 +92,118 @@ export const login = user => dispatch => {
     console.log(user);
     dispatch(request());
     fetch(`${API_ORIGIN}/auth/login/`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(user)
-        })
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
         .then(res => {
             console.log(res);
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
         .then(authToken => storeAuthInfo(authToken.token, dispatch))
         .catch(err => {
-            dispatch(fetchErr(err));
-        });
+        dispatch(fetchErr(err));
+    });
 };
 
 export const logSession = user => dispatch => {
     fetch(`${API_ORIGIN}/auth/userLoggedIn`, {
-            method: "POST",
-            mode: "cors",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(user)
-        })
+        method: "POST",
+        mode: "cors",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
         .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
         .then(res => {
             // console.log(res.loggedIn[0]._id);
-            dispatch(inputPage(res.loggedIn));
-        });
+        dispatch(inputPage(res.loggedIn));
+    });
 };
 
 export const signupUser = user => dispatch => {
     dispatch(request());
     console.log(user);
     fetch(`${API_ORIGIN}/auth/signup/`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(user)
-        })
+        method: "POST",
+        headers: {
+            "content-type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
         .then(res => {
-            console.log(res);
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
+        console.log(res);
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
         .then(authToken => storeAuthInfo(authToken.token, dispatch))
         .catch(err => {
-            dispatch(fetchErr(err));
-        });
+        dispatch(fetchErr(err));
+    });
 };
 
-export const tCalculator = (time, distance) => dispatch => {
-    console.log(time, distance)
+export const tCalculator = (time,distance)  => dispatch =>{
+    console.log(time,distance)
 
-    let timeCalculator = {
-        time,
-        distance
-    }
+    let timeCalculator = {time,distance}
     fetch(`${API_ORIGIN}/time-calculator`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                Authorization: `Bearer HELLO`
-            },
-            body: JSON.stringify(timeCalculator)
-        })
-        .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
-        .then(res => {
-            console.log(res);
-            // return res.json();
-            dispatch(getLeaderboardScores(res));
-            // dispatch(inputPage(res.loggedIn));
-        })
-        .catch(err => {
-            console.log(err);
-        });
+    method: "POST",
+    headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer HELLO`
+    },
+    body: JSON.stringify(timeCalculator)
+})
+    .then(res => {
+    if (!res.ok) {
+        return Promise.reject(res.statusText);
+    }
+    return res.json();
+})
+    .then(res => {
+    // return res.json();
+    dispatch(getLeaderboardScores(res));
+    // dispatch(inputPage(res.loggedIn));
+})
+    .catch(err => {
+    console.log(err);
+});
 };
 
 export const getLeaderboardScores = () => dispatch => {
     dispatch(request());
     fetch(`${API_ORIGIN}/get-leaderboard-scores/`, {
-            mode: "cors",
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                Authorization: `Bearer HELLO`
-            }
-        })
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            Authorization: `Bearer HELLO`
+        }
+    })
         .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
         .then(res => {
-            console.log(res)
-            dispatch(displayLeaderboard(res.leaderBoardScores));
-        })
+        dispatch(displayLeaderboard(res));
+    })
         .catch(err => {
-            dispatch(fetchErr(err));
-        });
+        dispatch(fetchErr(err));
+    });
 };
 
 
@@ -222,27 +211,27 @@ export const getLeaderboardScores = () => dispatch => {
 export const getWatchlist = (userId, token) => dispatch => {
     dispatch(request());
     fetch(`${API_ORIGIN}/show-saved-workouts/${userId}`, {
-            mode: "cors",
-            headers: {
-                "Access-Control-Allow-Origin": "*",
-                Authorization: `Bearer ${token}`
-            }
-        })
+        mode: "cors",
+        headers: {
+            "Access-Control-Allow-Origin": "*",
+            Authorization: `Bearer ${token}`
+        }
+    })
         .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
         .then(res => {
-            dispatch(res.videos);
-        })
+        dispatch(res.videos);
+    })
         .catch(err => {
-            dispatch(fetchErr(err));
-        });
+        dispatch(fetchErr(err));
+    });
 };
 
-export const addVideo = (video, userID, token) => dispatch => {
+export const addVideo = (video,userID, token) => dispatch => {
     // Extracts properties for database
     const videoObj = {
         url: video.id.videoUrl,
@@ -250,31 +239,28 @@ export const addVideo = (video, userID, token) => dispatch => {
         thumbnail: video.snippet.thumbnails.medium.url
     };
 
-    const userVideo = {
-        video: videoObj,
-        id: userID
-    };
+    const userVideo = { video: videoObj, id: userID };
 
     dispatch(request());
     fetch(`${API_ORIGIN}/saved-workouts`, {
-            method: "POST",
-            headers: {
-                "content-type": "application/json",
-                Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify(userVideo)
-        })
+        method: "POST",
+        headers: {
+            "content-type": "application/json",
+            Authorization: `Bearer ${token}`
+        },
+        body: JSON.stringify(userVideo)
+    })
         .then(res => {
-            if (!res.ok) {
-                return Promise.reject(res.statusText);
-            }
-            return res.json();
-        })
+        if (!res.ok) {
+            return Promise.reject(res.statusText);
+        }
+        return res.json();
+    })
         .then(res => {
-            console.log(res);
-            dispatch(addVideo(res));
-        })
+        console.log(res);
+        dispatch(addVideo(res));
+    })
         .catch(err => {
-            console.log(err);
-        });
+        console.log(err);
+    });
 };

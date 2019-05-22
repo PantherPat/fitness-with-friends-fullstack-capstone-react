@@ -51,7 +51,7 @@ export default class InputPage extends React.Component {
 
           <div className="leader-board">
             <h1 id="leaderBoardTitle">LeaderBoard</h1>
-            <TrackedInformation userName = { this.state.userName} distance ={this.state.distance} time ={this.state.time} average = {this.state.average} />
+            <TrackedInformation />
           </div>
 
           <section className="workout-information">

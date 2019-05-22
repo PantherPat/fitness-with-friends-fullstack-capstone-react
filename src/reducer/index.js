@@ -15,78 +15,81 @@ const initialState = {
     TrackedInformation: "",
     user: null,
     inputPage: [],
-    loggedIn:false
+    loggedIn:false,
+    leaderboard: []
 };
 
 
 
 export const reducer = (state = initialState, action) => {
-    if (action.type === actions.ERROR) {
-        return Object.assign({}, state, {
-            error: action.err,
-        });
-    }
+    // if (action.type === actions.ERROR) {
+    //     return Object.assign({}, state, {
+    //         error: action.err,
+    //     });
+    // }
 
     if (action.type === actions.DISPLAY_LEADERBOARD) {
-        return Object.assign({}, state, {
-          error: null,
-          results: action.results
-        });
+        console.log(action)
+        return {
+            ...this.state,
+            error: null,
+            leaderboard:[...this.state.leaderboard, action.data]
+        }
       }
 
-    if (action.typer === actions.INPUT_PAGE){
-        return Object.assign({}, state, {
-            inputPage: action.user
-        })
-    }
+//     if (action.typer === actions.INPUT_PAGE){
+//         return Object.assign({}, state, {
+//             inputPage: action.user
+//         })
+//     }
 
-    if (action.type === actions.LOG_USER) {
-        return Object.assign({}, state, {
-            error: null,
-            user: action.user,
-            loggedIn: true
-        });
-    }
+//     if (action.type === actions.LOG_USER) {
+//         return Object.assign({}, state, {
+//             error: null,
+//             user: action.user,
+//             loggedIn: true
+//         });
+//     }
 
-    if (action.type === action.TIMECALCULATOR){
-        return Object.assign({}, state, {
-            distance: action.distance,
-            time: action.time,
-            avgTime: action.avgTime,
-            userID: action.user
+//     if (action.type === action.TIMECALCULATOR){
+//         return Object.assign({}, state, {
+//             distance: action.distance,
+//             time: action.time,
+//             avgTime: action.avgTime,
+//             userID: action.user
 
-        })
-    }
+//         })
+//     }
 
-    if (action.type === actions.SAVEDWORKOUTS) {
-    return Object.assign({}, state, {
-        videoUrl: action.videoUrl,
-        thumbnail: action.thumbnail,
-        title: action.title
-    });
+//     if (action.type === actions.SAVEDWORKOUTS) {
+//     return Object.assign({}, state, {
+//         videoUrl: action.videoUrl,
+//         thumbnail: action.thumbnail,
+//         title: action.title
+//     });
 
-}
-    if (action.type === actions.WATCHLIST) {
-    return Object.assign({}, state, {
-        watchlist: [],
-        videoUrl: action.videoUrl,
-        thumbnail: action.thumbnail,
-        title: action.title
-    });
-}
+// }
+//     if (action.type === actions.WATCHLIST) {
+//     return Object.assign({}, state, {
+//         watchlist: [],
+//         videoUrl: action.videoUrl,
+//         thumbnail: action.thumbnail,
+//         title: action.title
+//     });
+// }
 
-    if (action.type === actions.SET_AUTH_TOKEN) {
-        return Object.assign({}, state, {
-            authToken: action.authToken,
-        });
-    }
+//     if (action.type === actions.SET_AUTH_TOKEN) {
+//         return Object.assign({}, state, {
+//             authToken: action.authToken,
+//         });
+//     }
 
-    if (action.type === actions.AUTH_SUCCESS) {
-        return Object.assign({}, state, {
-            user: action.currentUser.username,
-            userID: action.currentUser.id
-        });
-    }
+//     if (action.type === actions.AUTH_SUCCESS) {
+//         return Object.assign({}, state, {
+//             user: action.currentUser.username,
+//             userID: action.currentUser.id
+//         });
+//     }
     return state;
 }
 
